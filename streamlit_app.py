@@ -41,7 +41,7 @@ try:
        back_from_function = get_fruityvice_data(fruit_choice) 
        streamlit.dataframe(back_from_function)
 
-        fruit_choice = streamlit.text_input('What fruit would you like information about?'),#'Kiwi')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 streamlit.write('The user entered ', fruit_choice)
 
 #import request
@@ -51,16 +51,12 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 #output ot screen
 streamlit.dataframe(fruityvice_normalized)
-       # streamlit.dataframe(fruityvice_normalized)
+        streamlit.dataframe(fruityvice_normalized)
 
 except URLError as e:
     streamlit.error()
 
-    
-    
-    
 streamlit.stop()
-
 
 #import snowflake
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
