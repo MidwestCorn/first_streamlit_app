@@ -41,8 +41,6 @@ try:
        back_from_function = get_fruityvice_data(fruit_choice) 
        streamlit.dataframe(back_from_function)
 
-        streamlit.stop()
-
 fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 streamlit.write('The user entered ', fruit_choice)
 
